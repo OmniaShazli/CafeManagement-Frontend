@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu — KAYAN Coffee House</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a382b' stroke-width='2' stroke-linecap='round'><path d='M17 8h1a4 4 0 1 1 0 8h-1'/><path d='M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z'/><line x1='6' x2='6' y1='2' y2='4'/><line x1='10' x2='10' y1='2' y2='4'/><line x1='14' x2='14' y1='2' y2='4'/></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script defer src="js/config.js"></script>
+    <script defer src="js/auth.js"></script>
+    <script defer src="js/api.js"></script>
+    <script defer src="js/ui.js"></script>
+    <script defer src="js/menu.js"></script>
+</head>
+<body data-page="menu">
+
+    <header id="site-nav"></header>
+
+    <main>
+        <section class="page-head">
+            <div class="container">
+                <span class="kicker">The menu</span>
+                <h1 class="page-title">Brewed slowly, <em>served warmly</em>.</h1>
+                <p class="lead">Everything is made to order. Add what you love to the tray and we take it from there.</p>
+            </div>
+        </section>
+
+        <section class="container page-body">
+            <div class="toolbar">
+                <div class="chips-row" id="category-chips"></div>
+                <div class="search-input">
+                    <i data-lucide="search"></i>
+                    <input class="input" type="search" id="menu-search" placeholder="Search the menu…">
+                </div>
+            </div>
+            <div class="items-grid" id="menu-grid"></div>
+        </section>
+    </main>
+
+     
+    <button type="button" class="cart-fab hidden" id="cart-fab">
+        <i data-lucide="shopping-bag"></i> Your order <span class="count" id="cart-count">0</span>
+    </button>
+
+     
+    <div class="overlay hidden" id="cart-overlay"></div>
+    <aside class="drawer" id="cart-drawer" aria-label="Your order">
+        <div class="drawer-head">
+            <div>
+                <h2 class="panel-title">Your order</h2>
+                <p class="small muted" id="cart-summary-label">Nothing added yet</p>
+            </div>
+            <button type="button" class="icon-btn" id="cart-close" aria-label="Close cart"><i data-lucide="x"></i></button>
+        </div>
+
+        <div class="drawer-body" id="cart-lines"></div>
+
+        <div class="drawer-foot">
+            <div class="seg" id="order-type-seg">
+                <button type="button" class="is-active" data-type="DineIn"><i data-lucide="utensils"></i> Dine in</button>
+                <button type="button" data-type="TakeAway"><i data-lucide="shopping-bag"></i> Takeaway</button>
+            </div>
+
+            <label class="field" id="table-field">
+                <span>Choose a table</span>
+                <select class="select" id="order-table"></select>
+            </label>
+
+            <label class="field">
+                <span>Notes for the barista</span>
+                <textarea class="textarea" id="order-notes" placeholder="Anything we should know? (optional)"></textarea>
+            </label>
+
+            <div class="total-row">
+                <span>Total</span>
+                <span id="cart-total">EGP 0.00</span>
+            </div>
+
+            <button type="button" class="btn btn--primary btn--block" id="place-order">
+                Place order <i data-lucide="arrow-right"></i>
+            </button>
+        </div>
+    </aside>
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                 
+
+                <div class="footer-brand">
+
+                    <a href="index.html"
+                       class="brand">
+
+                        <span class="brand-mark">
+
+                            <i data-lucide="coffee"></i>
+
+                        </span>
+
+                        <span class="brand-name">
+
+                            KAYAN
+
+                            <em>
+                                coffee house
+                            </em>
+
+                        </span>
+
+                    </a>
+
+                    <p>
+                        A neighbourhood coffee house serving slowly,
+                        warmly, and on purpose since 2016.
+                    </p>
+
+                </div>
+
+
+                 
+
+                <div class="footer-col">
+
+                    <h4>
+                        Visit us
+                    </h4>
+
+                    <p>
+                        <i data-lucide="map-pin"></i>
+                        12 Nile Avenue, Garden City, Cairo
+                    </p>
+
+                    <p>
+                        <i data-lucide="clock"></i>
+                        Every day · 7:00 — 23:00
+                    </p>
+
+                    <p>
+                        <i data-lucide="phone"></i>
+                        +20 100 234 5678
+                    </p>
+
+                </div>
+
+
+                 
+
+                <div class="footer-col">
+
+                    <h4>
+                        Explore
+                    </h4>
+
+                    <a href="menu.html">
+                        <i data-lucide="utensils"></i>
+                        The menu
+                    </a>
+
+                    <a href="reserve.html">
+                        <i data-lucide="calendar"></i>
+                        Reservations
+                    </a>
+
+                    <a href="orders.html">
+                        <i data-lucide="shopping-bag"></i>
+                        My orders
+                    </a>
+
+                    <a href="login.html">
+                        <i data-lucide="user"></i>
+                        Sign in
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-bar">
+
+                <span>
+                    © 2016 KAYAN Coffee House.
+                    Brewed with care.
+                </span>
+
+                <span>
+                    Made for lingering.
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,814 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Services | KAYAN Coffee House</title>
+
+    <meta name="description"
+          content="Discover the services offered by KAYAN Coffee House, from dine-in experiences and takeaway to table reservations, delivery, events, and catering.">
+
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a382b' stroke-width='2' stroke-linecap='round'><path d='M17 8h1a4 4 0 1 1 0 8h-1'/><path d='M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z'/><line x1='6' x2='6' y1='2' y2='4'/><line x1='10' x2='10' y1='2' y2='4'/><line x1='14' x2='14' y1='2' y2='4'/></svg>">
+
+     
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+     
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+     
+
+    <script defer
+            src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js">
+    </script>
+
+     
+
+    <script defer
+            src="js/config.js">
+    </script>
+
+    <script defer
+            src="js/auth.js">
+    </script>
+
+    <script defer
+            src="js/api.js">
+    </script>
+
+    <script defer
+            src="js/ui.js">
+    </script>
+
+
+    <style>
+
+        .services-page {
+            min-height: 100vh;
+        }
+
+        .services-hero {
+            position: relative;
+            padding: 120px 24px 100px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+            .services-hero::before {
+                content: "";
+                position: absolute;
+                width: 420px;
+                height: 420px;
+                border-radius: 50%;
+                background: rgba(156, 112, 76, 0.08);
+                top: -180px;
+                left: -140px;
+                pointer-events: none;
+            }
+
+            .services-hero::after {
+                content: "";
+                position: absolute;
+                width: 350px;
+                height: 350px;
+                border-radius: 50%;
+                background: rgba(92, 64, 47, 0.06);
+                right: -130px;
+                bottom: -180px;
+                pointer-events: none;
+            }
+
+        .services-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-family: "Outfit", sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #8b6245;
+        }
+
+            .services-eyebrow::before,
+            .services-eyebrow::after {
+                content: "";
+                width: 28px;
+                height: 1px;
+                background: #b79573;
+            }
+
+        .services-hero h1 {
+            margin: 0;
+            font-family: "Fraunces", serif;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            line-height: 0.98;
+            font-weight: 500;
+            letter-spacing: -0.04em;
+            color: #3d2b20;
+        }
+
+            .services-hero h1 span {
+                color: #956b4d;
+            }
+
+        .services-hero p {
+            max-width: 650px;
+            margin: 28px auto 0;
+            font-family: "Outfit", sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-weight: 300;
+            color: #6f6259;
+        }
+
+        .services-section {
+            padding: 30px 24px 110px;
+        }
+
+        .services-container {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            position: relative;
+            min-height: 330px;
+            padding: 38px 32px;
+            display: flex;
+            flex-direction: column;
+            background: #fffaf3;
+            border: 1px solid rgba(101, 73, 54, 0.12);
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(61, 43, 32, 0.06);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+            .service-card::before {
+                content: "";
+                position: absolute;
+                width: 130px;
+                height: 130px;
+                top: -55px;
+                right: -55px;
+                border-radius: 50%;
+                background: rgba(149, 107, 77, 0.08);
+                transition: transform 0.35s ease;
+            }
+
+            .service-card:hover {
+                transform: translateY(-8px);
+                border-color: rgba(149, 107, 77, 0.28);
+                box-shadow: 0 20px 50px rgba(61, 43, 32, 0.11);
+            }
+
+                .service-card:hover::before {
+                    transform: scale(1.35);
+                }
+
+        .service-icon {
+            position: relative;
+            z-index: 1;
+            width: 62px;
+            height: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 28px;
+            border-radius: 16px;
+            background: #eadbc9;
+            color: #654735;
+            font-size: 1.65rem;
+            box-shadow: inset 0 0 0 1px rgba(101, 71, 53, 0.08);
+        }
+
+        .service-card h2 {
+            position: relative;
+            z-index: 1;
+            margin: 0 0 13px;
+            font-family: "Fraunces", serif;
+            font-size: 1.65rem;
+            line-height: 1.2;
+            font-weight: 600;
+            color: #3d2b20;
+        }
+
+        .service-card p {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            font-family: "Outfit", sans-serif;
+            font-size: 0.96rem;
+            line-height: 1.75;
+            font-weight: 300;
+            color: #756960;
+        }
+
+        .service-number {
+            position: absolute;
+            z-index: 1;
+            right: 28px;
+            bottom: 24px;
+            font-family: "Fraunces", serif;
+            font-size: 0.9rem;
+            color: rgba(101, 71, 53, 0.35);
+        }
+
+        .services-feature {
+            padding: 0 24px 110px;
+        }
+
+        .services-feature-inner {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #4b3528;
+            box-shadow: 0 20px 55px rgba(61, 43, 32, 0.13);
+        }
+
+        .services-feature-content {
+            padding: 65px 55px;
+        }
+
+        .services-feature-label {
+            margin-bottom: 18px;
+            font-family: "Outfit", sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #d8b997;
+        }
+
+        .services-feature h2 {
+            margin: 0 0 20px;
+            font-family: "Fraunces", serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.08;
+            font-weight: 500;
+            color: #fff9f1;
+        }
+
+        .services-feature p {
+            max-width: 510px;
+            margin: 0;
+            font-family: "Outfit", sans-serif;
+            font-size: 0.98rem;
+            line-height: 1.8;
+            font-weight: 300;
+            color: rgba(255, 249, 241, 0.75);
+        }
+
+        .services-feature-visual {
+            min-height: 340px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient( circle at center, rgba(214, 177, 141, 0.25), transparent 58% ), #604737;
+        }
+
+        .coffee-symbol {
+            width: 190px;
+            height: 190px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 249, 241, 0.2);
+            font-size: 5rem;
+            background: rgba(255, 249, 241, 0.06);
+            box-shadow: 0 0 0 20px rgba(255, 249, 241, 0.025), 0 0 0 40px rgba(255, 249, 241, 0.015);
+        }
+
+        .services-cta {
+            padding: 0 24px 120px;
+            text-align: center;
+        }
+
+        .services-cta-inner {
+            width: min(750px, 100%);
+            margin: 0 auto;
+        }
+
+        .services-cta h2 {
+            margin: 0 0 18px;
+            font-family: "Fraunces", serif;
+            font-size: clamp(2.3rem, 5vw, 3.8rem);
+            line-height: 1.05;
+            font-weight: 500;
+            color: #3d2b20;
+        }
+
+        .services-cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-family: "Outfit", sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            font-weight: 300;
+            color: #756960;
+        }
+
+        .services-cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            padding: 0 28px;
+            border-radius: 999px;
+            background: #5a3e2c;
+            color: #fffaf3;
+            font-family: "Outfit", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+        }
+
+            .services-cta-button:hover {
+                transform: translateY(-2px);
+                background: #402c20;
+                box-shadow: 0 10px 25px rgba(61, 43, 32, 0.16);
+            }
+
+        @media (max-width: 950px) {
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-feature-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .services-feature-visual {
+                min-height: 280px;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .services-hero {
+                padding: 85px 20px 70px;
+            }
+
+                .services-hero p {
+                    font-size: 0.95rem;
+                }
+
+            .services-section {
+                padding: 20px 18px 80px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .service-card {
+                min-height: 290px;
+                padding: 30px 26px;
+            }
+
+            .services-feature {
+                padding: 0 18px 80px;
+            }
+
+            .services-feature-content {
+                padding: 42px 28px;
+            }
+
+            .services-feature-visual {
+                min-height: 250px;
+            }
+
+            .coffee-symbol {
+                width: 150px;
+                height: 150px;
+                font-size: 4rem;
+            }
+
+            .services-cta {
+                padding: 0 20px 90px;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body data-page="services">
+
+    <header id="site-nav"></header>
+
+    <main>
+
+        <section class="services-hero">
+
+            <div class="services-hero-content">
+
+                <div class="services-eyebrow">
+                    What We Offer
+                </div>
+
+                <h1>
+                    More Than Just
+                    <span>Coffee.</span>
+                </h1>
+
+                <p>
+                    At KAYAN Coffee House, we create more than great coffee.
+                    From relaxing dine-in moments to convenient takeaway,
+                    reservations, delivery, and special events, we're here
+                    to make every visit feel special.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="services-section">
+
+            <div class="services-container">
+
+                <div class="services-grid">
+
+
+                     
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            ☕
+                        </div>
+
+                        <h2>
+                            Dine-In Experience
+                        </h2>
+
+                        <p>
+                            Enjoy freshly prepared coffee, delicious food,
+                            and a comfortable atmosphere where you can relax,
+                            work, meet friends, or simply take a break.
+                        </p>
+
+                        <span class="service-number">
+                            01
+                        </span>
+
+                    </article>
+
+
+                     
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            🥡
+                        </div>
+
+                        <h2>
+                            Takeaway
+                        </h2>
+
+                        <p>
+                            In a hurry? Place your order and take your
+                            favorite coffee and meals with you wherever
+                            you're heading.
+                        </p>
+
+                        <span class="service-number">
+                            02
+                        </span>
+
+                    </article>
+
+
+                     
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            🚚
+                        </div>
+
+                        <h2>
+                            Delivery
+                        </h2>
+
+                        <p>
+                            Enjoy KAYAN from the comfort of your home.
+                            Order your favorite drinks and meals and have
+                            them delivered straight to your door.
+                        </p>
+
+                        <span class="service-number">
+                            03
+                        </span>
+
+                    </article>
+
+
+                     
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            🪑
+                        </div>
+
+                        <h2>
+                            Table Reservations
+                        </h2>
+
+                        <p>
+                            Planning a visit? Reserve your table in advance
+                            and make sure your favorite spot is ready when
+                            you arrive.
+                        </p>
+
+                        <span class="service-number">
+                            04
+                        </span>
+
+                    </article>
+
+
+                     
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            🎉
+                        </div>
+
+                        <h2>
+                            Private Events
+                        </h2>
+
+                        <p>
+                            Celebrate your special moments at KAYAN.
+                            Our cozy atmosphere is perfect for gatherings,
+                            meetings, birthdays, and private occasions.
+                        </p>
+
+                        <span class="service-number">
+                            05
+                        </span>
+
+                    </article>
+
+
+                     
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            🍰
+                        </div>
+
+                        <h2>
+                            Catering
+                        </h2>
+
+                        <p>
+                            Bring the KAYAN experience to your event with
+                            carefully prepared coffee, drinks, desserts,
+                            and food for your guests.
+                        </p>
+
+                        <span class="service-number">
+                            06
+                        </span>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="services-feature">
+
+            <div class="services-feature-inner">
+
+                <div class="services-feature-content">
+
+                    <div class="services-feature-label">
+                        The KAYAN Experience
+                    </div>
+
+                    <h2>
+                        Crafted for moments
+                        worth remembering.
+                    </h2>
+
+                    <p>
+                        Whether you're stopping by for your morning coffee,
+                        meeting friends after work, or celebrating something
+                        special, KAYAN is designed to make every moment
+                        comfortable, warm, and memorable.
+                    </p>
+
+                </div>
+
+
+                <div class="services-feature-visual">
+
+                    <div class="coffee-symbol">
+                        ☕
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="services-cta">
+
+            <div class="services-cta-inner">
+
+                <h2>
+                    Ready to experience KAYAN?
+                </h2>
+
+                <p>
+                    Explore our menu, reserve a table, or simply come by
+                    and enjoy a cup of coffee with us.
+                </p>
+
+                <a href="menu.html"
+                   class="services-cta-button">
+
+                    Explore Our Menu
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                 
+
+                <div class="footer-brand">
+
+                    <a href="index.html"
+                       class="brand">
+
+                        <span class="brand-mark">
+
+                            <i data-lucide="coffee"></i>
+
+                        </span>
+
+                        <span class="brand-name">
+
+                            KAYAN
+
+                            <em>
+                                coffee house
+                            </em>
+
+                        </span>
+
+                    </a>
+
+                    <p>
+                        A neighbourhood coffee house serving slowly,
+                        warmly, and on purpose since 2016.
+                    </p>
+
+                </div>
+
+
+                 
+
+                <div class="footer-col">
+
+                    <h4>
+                        Visit us
+                    </h4>
+
+                    <p>
+                        <i data-lucide="map-pin"></i>
+                        12 Nile Avenue, Garden City, Cairo
+                    </p>
+
+                    <p>
+                        <i data-lucide="clock"></i>
+                        Every day · 7:00 — 23:00
+                    </p>
+
+                    <p>
+                        <i data-lucide="phone"></i>
+                        +20 100 234 5678
+                    </p>
+
+                </div>
+
+
+                 
+
+                <div class="footer-col">
+
+                    <h4>
+                        Explore
+                    </h4>
+
+                    <a href="menu.html">
+                        <i data-lucide="utensils"></i>
+                        The menu
+                    </a>
+
+                    <a href="reserve.html">
+                        <i data-lucide="calendar"></i>
+                        Reservations
+                    </a>
+
+                    <a href="orders.html">
+                        <i data-lucide="shopping-bag"></i>
+                        My orders
+                    </a>
+
+                    <a href="login.html">
+                        <i data-lucide="user"></i>
+                        Sign in
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-bar">
+
+                <span>
+                    © 2016 KAYAN Coffee House.
+                    Brewed with care.
+                </span>
+
+                <span>
+                    Made for lingering.
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in — KAYAN Coffee House</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a382b' stroke-width='2' stroke-linecap='round'><path d='M17 8h1a4 4 0 1 1 0 8h-1'/><path d='M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z'/><line x1='6' x2='6' y1='2' y2='4'/><line x1='10' x2='10' y1='2' y2='4'/><line x1='14' x2='14' y1='2' y2='4'/></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script defer src="js/config.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/api.js"></script>
+  <script defer src="js/ui.js"></script>
+  <script defer src="js/login.js"></script>
+</head>
+<body>
+
+  <main class="auth-page">
+    <div class="auth-visual">
+      <img src="https://images.pexels.com/photos/18189262/pexels-photo-18189262.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Barista pouring coffee at the bar">
+      <div class="auth-quote">
+        <p>“The best ideas begin over a warm cup.”</p>
+        <span>KAYAN — house journal</span>
+      </div>
+    </div>
+
+    <div class="auth-side">
+      <div class="auth-card">
+        <a href="index.html" class="brand">
+          <span class="brand-mark"><i data-lucide="coffee"></i></span>
+          <span class="brand-name">KAYAN<em>coffee house</em></span>
+        </a>
+
+        <h1>Welcome back</h1>
+        <p class="sub">Sign in to order ahead, book your table, and track your cups.</p>
+
+        <form id="login-form" novalidate>
+          <label class="field">
+            <span>Email address</span>
+            <input class="input" type="email" id="login-email" placeholder="you@example.com" autocomplete="email" required>
+          </label>
+          <label class="field">
+            <span>Password</span>
+            <input class="input" type="password" id="login-password" placeholder="Your password" autocomplete="current-password" required>
+          </label>
+          <button type="submit" class="btn btn--primary btn--block" id="login-submit">
+            Sign in <i data-lucide="arrow-right"></i>
+          </button>
+        </form>
+
+        <p class="auth-switch">New around here? <a href="register.html">Create an account</a></p>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

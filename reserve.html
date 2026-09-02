@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations — KAYAN Coffee House</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a382b' stroke-width='2' stroke-linecap='round'><path d='M17 8h1a4 4 0 1 1 0 8h-1'/><path d='M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z'/><line x1='6' x2='6' y1='2' y2='4'/><line x1='10' x2='10' y1='2' y2='4'/><line x1='14' x2='14' y1='2' y2='4'/></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script defer src="js/config.js"></script>
+    <script defer src="js/auth.js"></script>
+    <script defer src="js/api.js"></script>
+    <script defer src="js/ui.js"></script>
+    <script defer src="js/reserve.js"></script>
+</head>
+<body data-page="reserve">
+
+    <header id="site-nav"></header>
+
+    <main>
+        <section class="page-head">
+            <div class="container">
+                <span class="kicker">Reservations</span>
+                <h1 class="page-title">Keep your <em>corner</em> warm.</h1>
+                <p class="lead">Pick a table, tell us when, and it will be waiting with the good light on it.</p>
+            </div>
+        </section>
+
+        <section class="container page-body">
+            <div class="reserve-grid">
+
+                 
+                <div class="card">
+                    <h2 class="panel-title">Book a table</h2>
+                    <p class="small muted mt-1">Tap a table to select it — grey ones are already taken.</p>
+
+                    <div class="field mt-2">
+                        <span>Our tables</span>
+                        <div class="tables-grid" id="tables-grid"></div>
+                    </div>
+
+                    <form id="reserve-form" class="mt-2" novalidate>
+                        <div class="form-row">
+                            <label class="field">
+                                <span>Date</span>
+                                <input type="date" class="input" id="res-date" required>
+                            </label>
+                            <label class="field">
+                                <span>Time</span>
+                                <input type="time" class="input" id="res-time" value="18:00" required>
+                            </label>
+                        </div>
+                        <label class="field">
+                            <span>Party size</span>
+                            <input type="number" class="input" id="res-party" min="1" max="20" value="2" required>
+                        </label>
+                        <label class="field">
+                            <span>Notes</span>
+                            <textarea class="textarea" id="res-notes" placeholder="Occasion, window seat, quiet spot… (optional)"></textarea>
+                        </label>
+                        <button type="submit" class="btn btn--primary btn--block" id="reserve-submit">
+                            Confirm reservation <i data-lucide="calendar-check"></i>
+                        </button>
+                    </form>
+                </div>
+
+                 
+                <div class="card">
+                    <div class="flex-between">
+                        <h2 class="panel-title">My reservations</h2>
+                        <button type="button" class="icon-btn icon-btn--sm" id="res-refresh" title="Refresh" aria-label="Refresh">
+                            <i data-lucide="refresh-cw"></i>
+                        </button>
+                    </div>
+                    <div id="my-reservations" class="mt-2"></div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                 
+
+                <div class="footer-brand">
+
+                    <a href="index.html"
+                       class="brand">
+
+                        <span class="brand-mark">
+
+                            <i data-lucide="coffee"></i>
+
+                        </span>
+
+                        <span class="brand-name">
+
+                            KAYAN
+
+                            <em>
+                                coffee house
+                            </em>
+
+                        </span>
+
+                    </a>
+
+                    <p>
+                        A neighbourhood coffee house serving slowly,
+                        warmly, and on purpose since 2016.
+                    </p>
+
+                </div>
+
+
+                 
+
+                <div class="footer-col">
+
+                    <h4>
+                        Visit us
+                    </h4>
+
+                    <p>
+                        <i data-lucide="map-pin"></i>
+                        12 Nile Avenue, Garden City, Cairo
+                    </p>
+
+                    <p>
+                        <i data-lucide="clock"></i>
+                        Every day · 7:00 — 23:00
+                    </p>
+
+                    <p>
+                        <i data-lucide="phone"></i>
+                        +20 100 234 5678
+                    </p>
+
+                </div>
+
+
+                 
+
+                <div class="footer-col">
+
+                    <h4>
+                        Explore
+                    </h4>
+
+                    <a href="menu.html">
+                        <i data-lucide="utensils"></i>
+                        The menu
+                    </a>
+
+                    <a href="reserve.html">
+                        <i data-lucide="calendar"></i>
+                        Reservations
+                    </a>
+
+                    <a href="orders.html">
+                        <i data-lucide="shopping-bag"></i>
+                        My orders
+                    </a>
+
+                    <a href="login.html">
+                        <i data-lucide="user"></i>
+                        Sign in
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-bar">
+
+                <span>
+                    © 2016 KAYAN Coffee House.
+                    Brewed with care.
+                </span>
+
+                <span>
+                    Made for lingering.
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

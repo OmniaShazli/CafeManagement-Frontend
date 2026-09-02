@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        KAYAN — Coffee House | Your Coffee, Your Way
+
+    </title>
+
+    <meta name="description"
+          content="KAYAN Coffee House —         Enjoy freshly prepared coffee, a variety of drinks, and a comfortable place to relax, work, or meet with friends.">
+
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a382b' stroke-width='2' stroke-linecap='round'><path d='M17 8h1a4 4 0 1 1 0 8h-1'/><path d='M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z'/><line x1='6' x2='6' y1='2' y2='4'/><line x1='10' x2='10' y1='2' y2='4'/><line x1='14' x2='14' y1='2' y2='4'/></svg>">
+
+     
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+     
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+     
+
+    <script defer
+            src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js">
+    </script>
+
+     
+
+    <script defer
+            src="js/config.js">
+    </script>
+
+    <script defer
+            src="js/auth.js">
+    </script>
+
+    <script defer
+            src="js/api.js">
+    </script>
+
+    <script defer
+            src="js/ui.js">
+    </script>
+
+     
+
+    <script defer
+            src="js/home.js">
+    </script>
+
+</head>
+
+
+<body data-page="home">
+
+    <header id="site-nav"></header>
+
+    <section class="hero">
+
+        <div class="container hero-grid">
+
+            <div class="hero-copy">
+
+                <span class="kicker reveal">
+                    Coffee house — est. 2016
+                </span>
+
+                <h1 class="display reveal"
+                    data-delay="1">
+
+                    Your Coffee,
+                    <br>
+
+                    <em>Your</em> Way,
+
+                </h1>
+
+                <p class="lead reveal"
+                   data-delay="2">
+
+                    Enjoy freshly prepared coffee, a variety of drinks, and a comfortable place to relax, work, or meet with friends.
+
+                </p>
+
+                <div class="hero-actions reveal"
+                     data-delay="3">
+
+                    <a href="menu.html"
+                       class="btn btn--primary">
+
+                        Explore the menu
+
+                        <i data-lucide="arrow-right"></i>
+
+                    </a>
+
+                    <a href="reserve.html"
+                       class="btn btn--outline">
+
+                        Book a table
+
+                    </a>
+
+                </div>
+
+
+                <div class="hero-stats reveal"
+                     data-delay="3">
+
+                    <div class="hero-stat">
+
+                        <span class="num">
+                            24
+                        </span>
+
+                        <span class="lbl">
+                            Origin lots
+                        </span>
+
+                    </div>
+
+
+                    <div class="hero-stat">
+
+                        <span class="num">
+                            40k
+                        </span>
+
+                        <span class="lbl">
+                            Cups a year
+                        </span>
+
+                    </div>
+
+
+                    <div class="hero-stat">
+
+                        <span class="num">
+                            4.9
+                        </span>
+
+                        <span class="lbl">
+                            Guest rating
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-media reveal"
+                 data-delay="2">
+
+                <span class="hero-ring"></span>
+
+                <img class="hero-arch"
+                     src="https://images.pexels.com/photos/37014534/pexels-photo-37014534.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                     alt="Barista pouring latte art in a ceramic cup">
+
+
+                <div class="float-card float-card--one">
+
+                    <span class="ic">
+
+                        <i data-lucide="flame"></i>
+
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Roasted daily
+                        </strong>
+
+                        <span>
+                            In-house micro roastery
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="float-card float-card--two">
+
+                    <span class="ic">
+
+                        <i data-lucide="star"></i>
+
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            4.9 / 5
+                        </strong>
+
+                        <span>
+                            2,400+ guest reviews
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="marquee"
+         aria-hidden="true">
+
+        <div class="marquee-track">
+
+            <span>
+                Single origin
+                <b>✦</b>
+                Roasted daily
+                <b>✦</b>
+                Slow brewed
+                <b>✦</b>
+                Fresh pastry
+                <b>✦</b>
+                Quiet corners
+                <b>✦</b>
+            </span>
+
+            <span>
+                Single origin
+                <b>✦</b>
+                Roasted daily
+                <b>✦</b>
+                Slow brewed
+                <b>✦</b>
+                Fresh pastry
+                <b>✦</b>
+                Quiet corners
+                <b>✦</b>
+            </span>
+
+        </div>
+
+    </div>
+
+    <section class="section">
+
+        <div class="container story-grid">
+
+            <div class="story-media reveal">
+
+                <img class="img-main"
+                     src="https://images.pexels.com/photos/12570668/pexels-photo-12570668.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+                     alt="Warm KAYAN coffee house interior with sunlight">
+
+                <img class="img-badge"
+                     src="https://images.pexels.com/photos/302898/pexels-photo-302898.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                     alt="Espresso being extracted at the bar">
+
+            </div>
+
+
+            <div class="story-copy">
+
+                <span class="kicker reveal">
+                    Our story
+                </span>
+
+                <h2 class="display reveal"
+                    data-delay="1">
+
+                    Good Coffee. Good Food. Good Moments
+                    <em>daily ritual</em>.
+
+                </h2>
+
+                <p class="muted reveal mt-2"
+                   data-delay="2">
+
+                    We believe great coffee is about more than just a drink. It is about quality, comfort, and enjoying your time.
+
+                    From freshly prepared coffee to a welcoming atmosphere, we are here to make every visit a good one.
+                    
+
+                </p>
+
+                <p class="muted reveal"
+                   data-delay="2">
+                     
+
+
+                </p>
+
+                <p class="signature reveal"
+                   data-delay="3">
+
+                    — The KAYAN family
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section section--alt">
+
+        <div class="container">
+
+            <div class="section-head">
+
+                <div>
+
+                    <span class="kicker reveal">
+                        From the menu
+                    </span>
+
+                    <h2 class="display reveal"
+                        data-delay="1">
+
+                        House
+                        <em>favourites</em>
+
+                    </h2>
+
+                </div>
+
+
+                <a href="menu.html"
+                   class="btn btn--outline reveal"
+                   data-delay="2">
+
+                    View full menu
+
+                    <i data-lucide="arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+            <div class="items-grid"
+                 id="featured-grid">
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-head">
+
+                <div>
+
+                    <span class="kicker reveal">
+                        The craft
+                    </span>
+
+                    <h2 class="display reveal"
+                        data-delay="1">
+
+                        Why cups taste
+                        <em>different</em>
+                        here
+
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="values-grid">
+
+
+                <article class="value-card reveal">
+
+                    <span class="ic">
+
+                        <i data-lucide="flame"></i>
+
+                    </span>
+
+                    <h3>
+                        Roasted in-house
+                    </h3>
+
+                    <p>
+                        Small batches every morning, rested properly,
+                        never older than ten days.
+                    </p>
+
+                </article>
+
+
+                <article class="value-card reveal"
+                         data-delay="1">
+
+                    <span class="ic">
+
+                        <i data-lucide="leaf"></i>
+
+                    </span>
+
+                    <h3>
+                        Ethically sourced
+                    </h3>
+
+                    <p>
+                        Direct trade lots from farms we visit,
+                        priced so growers actually win.
+                    </p>
+
+                </article>
+
+
+                <article class="value-card reveal"
+                         data-delay="2">
+
+                    <span class="ic">
+
+                        <i data-lucide="clock"></i>
+
+                    </span>
+
+                    <h3>
+                        Brewed to order
+                    </h3>
+
+                    <p>
+                        Every cup is dosed, timed and weighed.
+                        Nothing sits on a warmer. Ever.
+                    </p>
+
+                </article>
+
+
+                <article class="value-card reveal"
+                         data-delay="3">
+
+                    <span class="ic">
+
+                        <i data-lucide="croissant"></i>
+
+                    </span>
+
+                    <h3>
+                        Baked at dawn
+                    </h3>
+
+                    <p>
+                        Butter, flour and patience — our pastry case
+                        is filled fresh each morning.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section pt-0">
+
+        <div class="container">
+
+            <div class="cta-band reveal">
+
+                <span class="kicker">
+                    A seat is waiting
+                </span>
+
+                <h2 class="display">
+                    Come say hello.
+                </h2>
+
+                <p>
+                    Reserve your corner in under a minute — or just walk in.
+                    We keep a few tables for the spontaneous.
+                </p>
+
+                <a href="reserve.html"
+                   class="btn btn--cream">
+
+                    Book a table
+
+                    <i data-lucide="arrow-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                <div class="footer-brand">
+
+                    <a href="index.html"
+                       class="brand">
+
+                        <span class="brand-mark">
+
+                            <i data-lucide="coffee"></i>
+
+                        </span>
+
+                        <span class="brand-name">
+
+                            KAYAN
+
+                            <em>
+                                coffee house
+                            </em>
+
+                        </span>
+
+                    </a>
+
+                    <p>
+                        A neighbourhood coffee house serving slowly,
+                        warmly, and on purpose since 2016.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-col">
+
+                    <h4>
+                        Visit us
+                    </h4>
+
+                    <p>
+                        <i data-lucide="map-pin"></i>
+                        12 Nile Avenue, Garden City, Cairo
+                    </p>
+
+                    <p>
+                        <i data-lucide="clock"></i>
+                        Every day · 7:00 — 23:00
+                    </p>
+
+                    <p>
+                        <i data-lucide="phone"></i>
+                        +20 100 234 5678
+                    </p>
+
+                </div>
+
+
+                <div class="footer-col">
+
+                    <h4>
+                        Explore
+                    </h4>
+
+                    <a href="menu.html">
+                        <i data-lucide="utensils"></i>
+                        The menu
+                    </a>
+
+                    <a href="reserve.html">
+                        <i data-lucide="calendar"></i>
+                        Reservations
+                    </a>
+
+                    <a href="services.html">
+                        <i data-lucide="coffee"></i>
+                        Services
+                    </a>
+
+                    <a href="orders.html">
+                        <i data-lucide="shopping-bag"></i>
+                        My orders
+                    </a>
+
+                    <a href="login.html">
+                        <i data-lucide="user"></i>
+                        Sign in
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bar">
+
+                <span>
+                    © 2016 KAYAN Coffee House. Brewed with care.
+                </span>
+
+                <span>
+                    Made for lingering.
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

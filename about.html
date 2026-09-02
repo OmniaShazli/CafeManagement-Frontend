@@ -1,0 +1,1341 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Our Story | KAYAN Coffee House</title>
+
+    <meta name="description"
+          content="Discover the story behind KAYAN Coffee House — where coffee, conversation and quiet moments come together.">
+
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a382b' stroke-width='2' stroke-linecap='round'><path d='M17 8h1a4 4 0 1 1 0 8h-1'/><path d='M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z'/><line x1='6' x2='6' y1='2' y2='4'/><line x1='10' x2='10' y1='2' y2='4'/><line x1='14' x2='14' y1='2' y2='4'/></svg>">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script defer src="js/config.js"></script>
+    <script defer src="js/auth.js"></script>
+    <script defer src="js/api.js"></script>
+    <script defer src="js/ui.js"></script>
+
+
+    <style>
+
+        .about-page {
+            min-height: 100vh;
+            background: #f7f1e8;
+            color: #33251d;
+            overflow: hidden;
+        }
+
+        .about-hero {
+            min-height: 560px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+            overflow: hidden;
+            background-image: linear-gradient( rgba(44, 33, 26, 0.58), rgba(44, 33, 26, 0.76) ), url("./bg_3.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #f7f1e8;
+        }
+
+
+            .about-hero::before {
+                content: "";
+                position: absolute;
+                width: 420px;
+                height: 420px;
+                border: 1px solid rgba(247, 241, 232, 0.22);
+                border-radius: 50%;
+                top: -180px;
+                left: -140px;
+                pointer-events: none;
+            }
+
+
+            .about-hero::after {
+                content: "";
+                position: absolute;
+                width: 340px;
+                height: 340px;
+                border: 1px solid rgba(247, 241, 232, 0.16);
+                border-radius: 50%;
+                right: -120px;
+                bottom: -160px;
+                pointer-events: none;
+            }
+
+
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+            width: min(850px, 100%);
+            color: #f7f1e8;
+        }
+
+
+        .about-kicker {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #e0bb83;
+            margin-bottom: 1.5rem;
+        }
+
+
+            .about-kicker::before,
+            .about-kicker::after {
+                content: "";
+                width: 38px;
+                height: 1px;
+                background: #e0bb83;
+            }
+
+
+        .about-hero h1 {
+            margin: 0 0 1.7rem;
+            font-family: var(--font-display, "Georgia", serif);
+            font-size: clamp(3.3rem, 7vw, 6.2rem);
+            line-height: 0.98;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+            color: #f7f1e8;
+        }
+
+
+            .about-hero h1 em {
+                color: #d9aa70;
+                font-style: italic;
+                font-weight: 400;
+            }
+
+
+        .about-hero p {
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.9;
+            color: rgba(247, 241, 232, 0.86);
+        }
+
+        .about-content {
+            width: min(1180px, calc(100% - 3rem));
+            margin: 0 auto;
+            padding: clamp(5rem, 9vw, 8rem) 0;
+        }
+
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+            gap: clamp(3rem, 7vw, 6.5rem);
+            align-items: center;
+        }
+
+        .about-image-wrap {
+            position: relative;
+        }
+
+
+        .about-image {
+            min-height: 560px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 220px 220px 18px 18px;
+            background-color: #d9c8b5;
+             
+            background-image: linear-gradient( rgba(44, 33, 26, 0.08), rgba(44, 33, 26, 0.08) ), url("https://images.pexels.com/photos/37014534/pexels-photo-37014534.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            box-shadow: 0 20px 50px rgba(44, 33, 26, 0.15);
+        }
+
+
+        .about-image-wrap::after {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 1px dashed #b4703f;
+            border-radius: 50%;
+            right: -35px;
+            top: 45px;
+            animation: about-spin 25s linear infinite;
+            pointer-events: none;
+        }
+
+
+        @keyframes about-spin {
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        .about-image-note {
+            position: absolute;
+            z-index: 2;
+            bottom: 28px;
+            left: -28px;
+            background: #fffdf9;
+            border: 1px solid #ded5ca;
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            box-shadow: 0 12px 35px rgba(44, 33, 26, 0.12);
+        }
+
+
+            .about-image-note strong {
+                display: block;
+                font-family: var(--font-display, Georgia, serif);
+                font-size: 1.2rem;
+                color: #4a3022;
+            }
+
+
+            .about-image-note span {
+                display: block;
+                margin-top: 2px;
+                font-size: 0.72rem;
+                color: #88786c;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+            }
+
+        .about-text {
+            max-width: 580px;
+        }
+
+
+            .about-text .small-title {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                color: #b4703f;
+                font-size: 0.72rem;
+                font-weight: 600;
+                letter-spacing: 0.28em;
+                text-transform: uppercase;
+                margin-bottom: 1.2rem;
+            }
+
+
+                .about-text .small-title::before {
+                    content: "";
+                    width: 32px;
+                    height: 1px;
+                    background: #b4703f;
+                }
+
+
+            .about-text h2 {
+                margin: 0 0 1.7rem;
+                font-family: var(--font-display, Georgia, serif);
+                font-size: clamp(2.5rem, 4.5vw, 4rem);
+                line-height: 1.05;
+                font-weight: 500;
+                letter-spacing: -0.02em;
+                color: #33251d;
+            }
+
+
+                .about-text h2 em {
+                    color: #b4703f;
+                    font-style: italic;
+                    font-weight: 400;
+                }
+
+
+            .about-text p {
+                color: #88786c;
+                line-height: 1.9;
+                margin: 0 0 1.15rem;
+                font-size: 1rem;
+            }
+
+
+        .about-signature {
+            margin-top: 2rem;
+            font-family: var(--font-display, Georgia, serif);
+            font-style: italic;
+            font-size: 1.4rem;
+            color: #b4703f;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: clamp(4rem, 8vw, 7rem);
+            border-top: 1px solid #ded5ca;
+            border-bottom: 1px solid #ded5ca;
+        }
+
+
+        .about-stat {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            position: relative;
+        }
+
+
+            .about-stat + .about-stat::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 25%;
+                height: 50%;
+                width: 1px;
+                background: #ded5ca;
+            }
+
+
+            .about-stat .number {
+                font-family: var(--font-display, Georgia, serif);
+                font-size: clamp(2.2rem, 4vw, 3.2rem);
+                line-height: 1;
+                font-weight: 600;
+                color: #4a3022;
+            }
+
+
+            .about-stat .label {
+                display: block;
+                margin-top: 0.55rem;
+                font-size: 0.7rem;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                color: #88786c;
+            }
+
+        .about-philosophy {
+            margin-top: clamp(5rem, 9vw, 8rem);
+            text-align: center;
+        }
+
+
+            .about-philosophy .kicker {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                color: #b4703f;
+                font-size: 0.72rem;
+                font-weight: 600;
+                letter-spacing: 0.28em;
+                text-transform: uppercase;
+                margin-bottom: 1.2rem;
+            }
+
+
+            .about-philosophy h2 {
+                max-width: 800px;
+                margin: 0 auto;
+                font-family: var(--font-display, Georgia, serif);
+                font-size: clamp(2.4rem, 5vw, 4.4rem);
+                line-height: 1.08;
+                font-weight: 500;
+                color: #33251d;
+            }
+
+
+                .about-philosophy h2 em {
+                    color: #b4703f;
+                    font-style: italic;
+                }
+
+
+            .about-philosophy p {
+                max-width: 650px;
+                margin: 1.4rem auto 0;
+                color: #88786c;
+                line-height: 1.8;
+            }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin-top: clamp(3rem, 6vw, 5rem);
+        }
+
+
+        .about-feature {
+            position: relative;
+            background: #fffdf9;
+            border: 1px solid #ded5ca;
+            border-radius: 18px;
+            padding: 2.4rem 1.8rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+
+            .about-feature:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 45px rgba(44, 33, 26, 0.10);
+                border-color: rgba(180, 112, 63, 0.35);
+            }
+
+
+            .about-feature .icon {
+                width: 58px;
+                height: 58px;
+                margin: 0 auto 1.3rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background: rgba(180, 112, 63, 0.12);
+                color: #9b5f35;
+                font-size: 1.5rem;
+            }
+
+
+            .about-feature h3 {
+                margin: 0 0.6rem;
+                font-family: var(--font-display, Georgia, serif);
+                font-size: 1.3rem;
+                font-weight: 600;
+                color: #4a3022;
+            }
+
+
+            .about-feature p {
+                margin: 0;
+                color: #88786c;
+                line-height: 1.75;
+                font-size: 0.88rem;
+            }
+
+        .about-quote {
+            margin-top: clamp(5rem, 9vw, 8rem);
+            padding: clamp(3.5rem, 7vw, 6rem) 2rem;
+            background: linear-gradient( 135deg, #4a3022, #2f211a );
+            border-radius: 25px;
+            text-align: center;
+            color: #f7f1e8;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+            .about-quote::before,
+            .about-quote::after {
+                content: "";
+                position: absolute;
+                border: 1px solid rgba(247, 241, 232, 0.13);
+                border-radius: 50%;
+            }
+
+
+            .about-quote::before {
+                width: 300px;
+                height: 300px;
+                top: -170px;
+                left: -100px;
+            }
+
+
+            .about-quote::after {
+                width: 250px;
+                height: 250px;
+                right: -100px;
+                bottom: -150px;
+            }
+
+
+        .about-quote-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+
+        .about-quote-mark {
+            font-family: Georgia, serif;
+            font-size: 5rem;
+            line-height: 0.5;
+            color: #d6a66b;
+            margin-bottom: 1.5rem;
+        }
+
+
+        .about-quote blockquote {
+            margin: 0;
+            font-family: var(--font-display, Georgia, serif);
+            font-size: clamp(1.8rem, 4vw, 3.2rem);
+            line-height: 1.2;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+
+        .about-quote span {
+            display: block;
+            margin-top: 1.5rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(247, 241, 232, 0.6);
+        }
+
+        .about-cta {
+            text-align: center;
+            padding-top: clamp(5rem, 8vw, 7rem);
+        }
+
+
+            .about-cta h2 {
+                margin: 0;
+                font-family: var(--font-display, Georgia, serif);
+                font-size: clamp(2.5rem, 5vw, 4.2rem);
+                line-height: 1.05;
+                font-weight: 500;
+                color: #33251d;
+            }
+
+
+                .about-cta h2 em {
+                    color: #b4703f;
+                    font-style: italic;
+                }
+
+
+            .about-cta p {
+                max-width: 550px;
+                margin: 1rem auto 1.8rem;
+                color: #88786c;
+                line-height: 1.8;
+            }
+
+
+            .about-cta .btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 50px;
+                padding: 0 1.5rem;
+                border-radius: 10px;
+                text-decoration: none;
+                font-size: 0.9rem;
+                font-weight: 600;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+
+            .about-cta .btn--primary {
+                background: #4a3022;
+                color: #fff;
+                box-shadow: 0 10px 25px rgba(44, 33, 26, 0.15);
+            }
+
+
+                .about-cta .btn--primary:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 15px 30px rgba(44, 33, 26, 0.22);
+                }
+
+        .about-reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+
+            .about-reveal.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+
+        .about-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+
+        .about-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+
+        .about-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        footer {
+            width: 100%;
+        }
+
+        @media (max-width: 900px) {
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .about-image {
+                min-height: 500px;
+            }
+
+
+            .about-text {
+                max-width: 100%;
+            }
+
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .about-content {
+                width: min( calc(100% - 2rem), 1180px );
+            }
+
+
+            .about-hero {
+                min-height: 480px;
+                padding: 80px 20px;
+            }
+
+
+                .about-hero h1 {
+                    font-size: clamp( 3rem, 14vw, 4.5rem );
+                }
+
+
+            .about-image {
+                min-height: 420px;
+                border-radius: 180px 180px 16px 16px;
+            }
+
+
+            .about-image-note {
+                left: 15px;
+                bottom: 15px;
+            }
+
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+
+            .about-stat + .about-stat::before {
+                left: 20%;
+                right: 20%;
+                top: 0;
+                width: 60%;
+                height: 1px;
+            }
+
+
+            .about-feature {
+                padding: 2rem 1.4rem;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body data-page="about">
+
+    <header id="site-nav"></header>
+
+
+    <main class="about-page">
+
+
+        <section class="about-hero">
+
+            <div class="about-hero-content about-reveal">
+
+                <div class="about-kicker">
+                    Our Story
+                </div>
+
+
+                <h1>
+                    More than a cup.<br>
+                    <em>A feeling.</em>
+                </h1>
+
+
+                <p>
+                    Some places serve coffee.
+                    We serve the moments that happen around it —
+                    slow mornings, long conversations,
+                    quiet thoughts, and memories worth keeping.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="about-content">
+
+
+
+            <div class="about-grid">
+
+
+
+                <div class="about-image-wrap about-reveal">
+
+                    <div class="about-image"></div>
+
+
+                    <div class="about-image-note">
+
+                        <strong>
+                            Since 2016
+                        </strong>
+
+                        <span>
+                            Brewed with intention
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="about-text about-reveal about-delay-1">
+
+                    <div class="small-title">
+                        Welcome to KAYAN
+                    </div>
+
+
+                    <h2>
+                        Where coffee becomes
+                        <em>a little ritual.</em>
+                    </h2>
+
+
+                    <p>
+                        KAYAN was created around a simple idea:
+                        life feels better when we slow down enough
+                        to taste it.
+                    </p>
+
+
+                    <p>
+                        Behind every cup is a little patience,
+                        a little craft, and a lot of love.
+                        We choose our coffee carefully,
+                        prepare every drink with intention,
+                        and believe that the smallest details
+                        can turn an ordinary visit into something
+                        worth remembering.
+                    </p>
+
+
+                    <p>
+                        Come for the coffee.
+                        Stay for the conversation.
+                        Leave with a moment you didn't know
+                        you needed.
+                    </p>
+
+
+                    <div class="about-signature">
+                        — The KAYAN Team
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="about-stats about-reveal">
+
+                <div class="about-stat">
+
+                    <div class="number"
+                         data-target="2016">
+                        0
+                    </div>
+
+                    <span class="label">
+                        The beginning
+                    </span>
+
+                </div>
+
+
+                <div class="about-stat">
+
+                    <div class="number"
+                         data-target="1000">
+                        0
+                    </div>
+
+                    <span class="label">
+                        Moments served
+                    </span>
+
+                </div>
+
+
+                <div class="about-stat">
+
+                    <div class="number"
+                         data-target="100">
+                        0
+                    </div>
+
+                    <span class="label">
+                        Made with care
+                    </span>
+
+                </div>
+
+            </div>
+
+            <section class="about-philosophy about-reveal">
+
+                <div class="kicker">
+                    Our Philosophy
+                </div>
+
+
+                <h2>
+                    We don't believe in
+                    <em>rushing good things.</em>
+                </h2>
+
+
+                <p>
+                    Coffee takes time.
+                    Conversations take time.
+                    Good memories take time too.
+                    KAYAN is a place where you are allowed
+                    to take yours.
+                </p>
+
+            </section>
+
+            <div class="about-features">
+
+
+                <article class="about-feature about-reveal">
+
+                    <div class="icon">
+                        ☕
+                    </div>
+
+
+                    <h3>
+                        Coffee with Character
+                    </h3>
+
+
+                    <p>
+                        Thoughtfully chosen beans,
+                        carefully brewed cups,
+                        and flavors that deserve
+                        your attention.
+                    </p>
+
+                </article>
+
+
+                <article class="about-feature about-reveal about-delay-1">
+
+                    <div class="icon">
+                        ✦
+                    </div>
+
+
+                    <h3>
+                        Made in the Moment
+                    </h3>
+
+
+                    <p>
+                        Nothing rushed.
+                        Nothing careless.
+                        Every cup is prepared
+                        as if it were the only one.
+                    </p>
+
+                </article>
+
+
+                <article class="about-feature about-reveal about-delay-2">
+
+                    <div class="icon">
+                        ♡
+                    </div>
+
+
+                    <h3>
+                        A Place to Belong
+                    </h3>
+
+
+                    <p>
+                        Come alone.
+                        Bring someone you love.
+                        Open your laptop.
+                        Or simply sit and breathe.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+            <section class="about-quote about-reveal">
+
+                <div class="about-quote-inner">
+
+                    <div class="about-quote-mark">
+                        “
+                    </div>
+
+
+                    <blockquote>
+                        There are moments that don't need
+                        anything more than a warm cup,
+                        a quiet corner,
+                        and nowhere else to be.
+                    </blockquote>
+
+
+                    <span>
+                        The KAYAN philosophy
+                    </span>
+
+                </div>
+
+            </section>
+
+            <section class="about-cta about-reveal">
+
+                <h2>
+                    Your next favorite
+                    <em>moment starts here.</em>
+                </h2>
+
+
+                <p>
+                    Whether you're looking for your morning coffee,
+                    a table for two, or simply a place to disappear
+                    for an hour — KAYAN is waiting.
+                </p>
+
+
+                <a href="menu.html"
+                   class="btn btn--primary">
+
+                    Explore Our Menu
+
+                </a>
+
+            </section>
+
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                <div class="footer-brand">
+
+                    <a href="index.html"
+                       class="brand">
+
+                        <span class="brand-mark">
+
+                            <i data-lucide="coffee"></i>
+
+                        </span>
+
+                        <span class="brand-name">
+
+                            KAYAN
+
+                            <em>
+                                coffee house
+                            </em>
+
+                        </span>
+
+                    </a>
+
+
+                    <p>
+                        A neighbourhood coffee house serving slowly,
+                        warmly, and on purpose since 2016.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-col">
+
+                    <h4>
+                        Visit us
+                    </h4>
+
+
+                    <p>
+
+                        <i data-lucide="map-pin"></i>
+
+                        12 Nile Avenue, Garden City, Cairo
+
+                    </p>
+
+
+                    <p>
+
+                        <i data-lucide="clock"></i>
+
+                        Every day · 7:00 — 23:00
+
+                    </p>
+
+
+                    <p>
+
+                        <i data-lucide="phone"></i>
+
+                        +20 100 234 5678
+
+                    </p>
+
+                </div>
+
+
+                <div class="footer-col">
+
+                    <h4>
+                        Explore
+                    </h4>
+
+
+                    <a href="menu.html">
+
+                        <i data-lucide="utensils"></i>
+
+                        The menu
+
+                    </a>
+
+
+                    <a href="reserve.html">
+
+                        <i data-lucide="calendar"></i>
+
+                        Reservations
+
+                    </a>
+
+
+                    <a href="orders.html">
+
+                        <i data-lucide="shopping-bag"></i>
+
+                        My orders
+
+                    </a>
+
+
+                    <a href="login.html">
+
+                        <i data-lucide="user"></i>
+
+                        Sign in
+
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-bar">
+
+                <span>
+                    © 2016 KAYAN Coffee House.
+                    Brewed with care.
+                </span>
+
+
+                <span>
+                    Made for lingering.
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const revealElements =
+                    document.querySelectorAll(
+                        ".about-reveal"
+                    );
+
+
+                if (
+                    "IntersectionObserver"
+                    in window
+                ) {
+
+                    const revealObserver =
+                        new IntersectionObserver(
+                            function (
+                                entries,
+                                observer
+                            ) {
+
+                                entries.forEach(
+                                    function (entry) {
+
+                                        if (
+                                            !entry.isIntersecting
+                                        ) {
+                                            return;
+                                        }
+
+
+                                        entry.target.classList.add(
+                                            "visible"
+                                        );
+
+
+                                        observer.unobserve(
+                                            entry.target
+                                        );
+
+                                    }
+                                );
+
+                            },
+                            {
+                                threshold: 0.12
+                            }
+                        );
+
+
+                    revealElements.forEach(
+                        function (element) {
+
+                            revealObserver.observe(
+                                element
+                            );
+
+                        }
+                    );
+
+                } else {
+
+                    revealElements.forEach(
+                        function (element) {
+
+                            element.classList.add(
+                                "visible"
+                            );
+
+                        }
+                    );
+
+                }
+
+                const counters =
+                    document.querySelectorAll(
+                        ".about-stat .number"
+                    );
+
+
+                let countersStarted = false;
+
+
+                function animateCounters() {
+
+                    if (countersStarted) {
+                        return;
+                    }
+
+
+                    countersStarted = true;
+
+
+                    counters.forEach(
+                        function (counter) {
+
+                            const target =
+                                Number(
+                                    counter.dataset.target
+                                );
+
+
+                            const duration = 1600;
+
+
+                            const startTime =
+                                performance.now();
+
+
+                            function update(
+                                currentTime
+                            ) {
+
+                                const elapsed =
+                                    currentTime -
+                                    startTime;
+
+
+                                const progress =
+                                    Math.min(
+                                        elapsed /
+                                        duration,
+                                        1
+                                    );
+
+
+                                const ease =
+                                    1 -
+                                    Math.pow(
+                                        1 - progress,
+                                        3
+                                    );
+
+
+                                const current =
+                                    Math.floor(
+                                        target * ease
+                                    );
+
+
+                                counter.textContent =
+                                    current.toLocaleString();
+
+
+                                if (
+                                    progress < 1
+                                ) {
+
+                                    requestAnimationFrame(
+                                        update
+                                    );
+
+                                } else {
+
+                                    counter.textContent =
+                                        target.toLocaleString();
+
+                                }
+
+                            }
+
+
+                            requestAnimationFrame(
+                                update
+                            );
+
+                        }
+                    );
+
+                }
+
+                const statsSection =
+                    document.querySelector(
+                        ".about-stats"
+                    );
+
+
+                if (
+                    statsSection &&
+                    "IntersectionObserver"
+                    in window
+                ) {
+
+                    const statsObserver =
+                        new IntersectionObserver(
+                            function (entries) {
+
+                                if (
+                                    entries[0]
+                                        .isIntersecting
+                                ) {
+
+                                    animateCounters();
+
+                                    statsObserver.disconnect();
+
+                                }
+
+                            },
+                            {
+                                threshold: 0.25
+                            }
+                        );
+
+
+                    statsObserver.observe(
+                        statsSection
+                    );
+
+                } else {
+
+                    animateCounters();
+
+                }
+
+                if (
+                    window.lucide &&
+                    typeof window.lucide.createIcons ===
+                    "function"
+                ) {
+
+                    window.lucide.createIcons();
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1177 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | KAYAN Coffee House</title>
+
+    <meta name="description"
+          content="Get in touch with KAYAN Coffee House. We'd love to hear from you.">
+
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a382b' stroke-width='2' stroke-linecap='round'><path d='M17 8h1a4 4 0 1 1 0 8h-1'/><path d='M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z'/><line x1='6' x2='6' y1='2' y2='4'/><line x1='10' x2='10' y1='2' y2='4'/><line x1='14' x2='14' y1='2' y2='4'/></svg>">
+
+
+     
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,0,9..144,400;1,0,9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+     
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+
+     
+
+    <script defer
+            src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js">
+    </script>
+
+
+     
+
+    <script defer src="js/config.js"></script>
+
+    <script defer src="js/auth.js"></script>
+
+    <script defer src="js/api.js"></script>
+
+    <script defer src="js/ui.js"></script>
+
+
+    <style>
+
+        .contact-page {
+            background: var(--cream, #f7f3ed);
+            overflow: hidden;
+        }
+
+        .contact-hero {
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+             
+
+            background-image: linear-gradient( rgba(44, 33, 26, 0.58), rgba(44, 33, 26, 0.76) ), url("./bg_3.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #fff;
+        }
+
+
+            .contact-hero::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: radial-gradient( circle at center, rgba(255,255,255,.08), transparent 55% );
+                pointer-events: none;
+            }
+
+
+        .contact-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+            animation: contactHeroIn .8s ease forwards;
+        }
+
+
+        .contact-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: #d8b17a;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+
+            .contact-kicker::before,
+            .contact-kicker::after {
+                content: "✦";
+                font-size: 10px;
+                opacity: .75;
+            }
+
+
+        .contact-hero h1 {
+            margin: 0;
+            color: #fff;
+            font-family: "Fraunces", serif;
+            font-size: clamp(48px, 8vw, 82px);
+            line-height: 1.05;
+            font-weight: 500;
+            letter-spacing: -2px;
+        }
+
+
+            .contact-hero h1 em {
+                color: #d6ad73;
+                font-style: italic;
+            }
+
+
+        .contact-hero p {
+            max-width: 650px;
+            margin: 25px auto 0;
+            color: rgba(255,255,255,.82);
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+
+        @keyframes contactHeroIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-section {
+            padding: 95px 0;
+        }
+
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: minmax(280px, .85fr) minmax(420px, 1.15fr);
+            gap: 55px;
+            align-items: start;
+        }
+
+        .contact-intro {
+            padding-top: 10px;
+        }
+
+
+            .contact-intro .kicker {
+                margin-bottom: 12px;
+            }
+
+
+            .contact-intro h2 {
+                margin: 0 0 20px;
+                font-family: "Fraunces", serif;
+                font-size: clamp(36px, 5vw, 52px);
+                line-height: 1.1;
+                font-weight: 500;
+                color: #3a2a20;
+            }
+
+
+                .contact-intro h2 em {
+                    font-style: italic;
+                    color: #a87845;
+                }
+
+
+            .contact-intro > p {
+                margin: 0 0 35px;
+                max-width: 470px;
+                color: #756b64;
+                font-size: 16px;
+                line-height: 1.8;
+            }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 18px;
+            border: 1px solid rgba(58, 41, 32, .08);
+            border-radius: 14px;
+            background: #fff;
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+        }
+
+
+            .contact-detail:hover {
+                transform: translateY(-3px);
+                border-color: rgba(168,120,69,.25);
+                box-shadow: 0 15px 35px rgba(45,29,20,.08);
+            }
+
+
+        .contact-detail-icon {
+            width: 46px;
+            height: 46px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(168,120,69,.10);
+            color: #9b6d3e;
+        }
+
+
+            .contact-detail-icon svg {
+                width: 20px;
+                height: 20px;
+            }
+
+
+        .contact-detail-text {
+            min-width: 0;
+        }
+
+
+            .contact-detail-text strong {
+                display: block;
+                margin-bottom: 3px;
+                color: #3a2920;
+                font-size: 13px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: .8px;
+            }
+
+
+            .contact-detail-text span {
+                color: #756b64;
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+        .contact-form-card {
+            position: relative;
+            padding: 42px;
+            border: 1px solid rgba(58, 41, 32, .08);
+            border-radius: 22px;
+            background: #fff;
+            box-shadow: 0 25px 60px rgba(45,29,20,.09);
+        }
+
+
+            .contact-form-card::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 40px;
+                right: 40px;
+                height: 3px;
+                border-radius: 0 0 5px 5px;
+                background: linear-gradient( 90deg, #a87845, #d6ad73 );
+            }
+
+
+        .form-heading {
+            margin-bottom: 30px;
+        }
+
+
+            .form-heading h2 {
+                margin: 0 0 8px;
+                color: #3a2920;
+                font-family: "Fraunces", serif;
+                font-size: 32px;
+                font-weight: 500;
+            }
+
+
+            .form-heading p {
+                margin: 0;
+                color: #756b64;
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+        .contact-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+
+        .contact-form-group {
+            margin-bottom: 20px;
+        }
+
+
+            .contact-form-group label {
+                display: block;
+                margin-bottom: 8px;
+                color: #3a2920;
+                font-size: 13px;
+                font-weight: 600;
+            }
+
+
+        .contact-input-wrap {
+            position: relative;
+        }
+
+
+        .contact-input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a18f80;
+            pointer-events: none;
+        }
+
+
+            .contact-input-icon svg {
+                width: 17px;
+                height: 17px;
+            }
+
+
+        .contact-form-group input,
+        .contact-form-group textarea {
+            width: 100%;
+            border: 1px solid #ded7cf;
+            border-radius: 11px;
+            outline: none;
+            background: #fbfaf8;
+            color: #40362f;
+            font-family: "Outfit", sans-serif;
+            font-size: 14px;
+            transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+        }
+
+
+        .contact-form-group input {
+            height: 50px;
+            padding: 0 15px 0 43px;
+        }
+
+
+        .contact-form-group textarea {
+            min-height: 145px;
+            padding: 14px 15px;
+            resize: vertical;
+        }
+
+
+            .contact-form-group input::placeholder,
+            .contact-form-group textarea::placeholder {
+                color: #a79b91;
+            }
+
+
+            .contact-form-group input:focus,
+            .contact-form-group textarea:focus {
+                border-color: #b88a58;
+                background: #fff;
+                box-shadow: 0 0 0 4px rgba(184,138,88,.10);
+            }
+
+
+        .contact-submit {
+            width: 100%;
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            border: none;
+            border-radius: 11px;
+            background: #3a2920;
+            color: #fff;
+            font-family: "Outfit", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+        }
+
+
+            .contact-submit:hover {
+                transform: translateY(-2px);
+                background: #4b3629;
+                box-shadow: 0 12px 25px rgba(45,29,20,.18);
+            }
+
+
+            .contact-submit svg {
+                width: 17px;
+                height: 17px;
+            }
+
+        .contact-success {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 13px 15px;
+            border-radius: 10px;
+            background: #edf7ef;
+            border: 1px solid #cee7d3;
+            color: #2e7540;
+            font-size: 13px;
+        }
+
+
+            .contact-success.show {
+                display: flex;
+                animation: successIn .3s ease;
+            }
+
+
+        @keyframes successIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-cta {
+            position: relative;
+            overflow: hidden;
+            padding: 70px 30px;
+            margin-bottom: 90px;
+            border-radius: 24px;
+            text-align: center;
+            background: linear-gradient( 135deg, #3a2920, #241711 );
+            color: #fff;
+        }
+
+
+            .contact-cta::before {
+                content: "☕";
+                position: absolute;
+                right: 6%;
+                top: -45px;
+                font-size: 180px;
+                opacity: .035;
+                transform: rotate(-15deg);
+            }
+
+
+            .contact-cta .kicker {
+                color: #d6ad73;
+            }
+
+
+            .contact-cta h2 {
+                position: relative;
+                margin: 10px 0 12px;
+                color: #fff;
+                font-family: "Fraunces", serif;
+                font-size: clamp(35px, 5vw, 52px);
+                font-weight: 500;
+            }
+
+
+            .contact-cta p {
+                position: relative;
+                max-width: 600px;
+                margin: auto;
+                color: rgba(255,255,255,.72);
+                line-height: 1.8;
+            }
+
+
+        @media (max-width: 900px) {
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+
+            .contact-intro > p {
+                max-width: 650px;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .contact-hero {
+                min-height: 430px;
+                padding: 80px 20px;
+            }
+
+
+                .contact-hero h1 {
+                    letter-spacing: -1px;
+                }
+
+
+                .contact-hero p {
+                    font-size: 15px;
+                }
+
+
+            .contact-section {
+                padding: 65px 0;
+            }
+
+
+            .contact-form-card {
+                padding: 32px 22px;
+                border-radius: 18px;
+            }
+
+
+                .contact-form-card::before {
+                    left: 25px;
+                    right: 25px;
+                }
+
+
+            .contact-form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+
+            .contact-cta {
+                margin-bottom: 60px;
+                padding: 55px 22px;
+                border-radius: 18px;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body data-page="contact">
+
+
+    <header id="site-nav"></header>
+
+
+    <main class="contact-page">
+
+        <section class="contact-hero">
+
+            <div class="contact-hero-content">
+
+                <span class="contact-kicker">
+                    KAYAN Coffee House
+                </span>
+
+
+                <h1>
+                    Let's <em>talk</em> coffee.
+                </h1>
+
+
+                <p>
+                    Have a question, a suggestion, or simply
+                    want to say hello? We'd love to hear from you.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="contact-section">
+
+            <div class="container">
+
+                <div class="contact-grid">
+
+                    <div class="contact-intro">
+
+                        <span class="kicker">
+                            Get in touch
+                        </span>
+
+
+                        <h2>
+                            We'd love to<br>
+                            hear <em>from you.</em>
+                        </h2>
+
+
+                        <p>
+                            Whether you're asking about our menu,
+                            planning a visit, checking a reservation,
+                            or simply want to share your coffee
+                            experience, our team is always happy
+                            to help.
+                        </p>
+
+
+                        <div class="contact-details">
+
+
+                             
+
+                            <div class="contact-detail">
+
+                                <div class="contact-detail-icon">
+
+                                    <i data-lucide="map-pin"></i>
+
+                                </div>
+
+                                <div class="contact-detail-text">
+
+                                    <strong>
+                                        Visit us
+                                    </strong>
+
+                                    <span>
+                                        12 Nile Avenue,
+                                        Garden City, Cairo
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                             
+
+                            <div class="contact-detail">
+
+                                <div class="contact-detail-icon">
+
+                                    <i data-lucide="phone"></i>
+
+                                </div>
+
+                                <div class="contact-detail-text">
+
+                                    <strong>
+                                        Call us
+                                    </strong>
+
+                                    <span>
+                                        +20 100 234 5678
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                             
+
+                            <div class="contact-detail">
+
+                                <div class="contact-detail-icon">
+
+                                    <i data-lucide="mail"></i>
+
+                                </div>
+
+                                <div class="contact-detail-text">
+
+                                    <strong>
+                                        Email
+                                    </strong>
+
+                                    <span>
+                                        hello@KAYANcoffee.com
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                             
+
+                            <div class="contact-detail">
+
+                                <div class="contact-detail-icon">
+
+                                    <i data-lucide="clock-3"></i>
+
+                                </div>
+
+                                <div class="contact-detail-text">
+
+                                    <strong>
+                                        Opening hours
+                                    </strong>
+
+                                    <span>
+                                        Every day · 7:00 — 23:00
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="contact-form-card">
+
+
+                        <div class="form-heading">
+
+                            <h2>
+                                Send us a message
+                            </h2>
+
+                            <p>
+                                Fill in the form and we'll get back
+                                to you as soon as possible.
+                            </p>
+
+                        </div>
+
+
+                        <form id="contactForm">
+
+
+                             
+
+                            <div class="contact-form-row">
+
+
+                                <div class="contact-form-group">
+
+                                    <label for="contactName">
+                                        Your name
+                                    </label>
+
+                                    <div class="contact-input-wrap">
+
+                                        <span class="contact-input-icon">
+
+                                            <i data-lucide="user"></i>
+
+                                        </span>
+
+                                        <input type="text"
+                                               id="contactName"
+                                               name="name"
+                                               placeholder="Your name"
+                                               autocomplete="name"
+                                               required>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="contact-form-group">
+
+                                    <label for="contactEmail">
+                                        Email address
+                                    </label>
+
+                                    <div class="contact-input-wrap">
+
+                                        <span class="contact-input-icon">
+
+                                            <i data-lucide="mail"></i>
+
+                                        </span>
+
+                                        <input type="email"
+                                               id="contactEmail"
+                                               name="email"
+                                               placeholder="you@example.com"
+                                               autocomplete="email"
+                                               required>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+
+                             
+
+                            <div class="contact-form-group">
+
+                                <label for="contactSubject">
+                                    Subject
+                                </label>
+
+                                <div class="contact-input-wrap">
+
+                                    <span class="contact-input-icon">
+
+                                        <i data-lucide="message-square"></i>
+
+                                    </span>
+
+                                    <input type="text"
+                                           id="contactSubject"
+                                           name="subject"
+                                           placeholder="What can we help you with?"
+                                           required>
+
+                                </div>
+
+                            </div>
+
+
+                             
+
+                            <div class="contact-form-group">
+
+                                <label for="contactMessage">
+                                    Your message
+                                </label>
+
+                                <textarea id="contactMessage"
+                                          name="message"
+                                          placeholder="Write your message here..."
+                                          required></textarea>
+
+                            </div>
+
+
+                             
+
+                            <button type="submit"
+                                    class="contact-submit"
+                                    id="contactSubmit">
+
+                                <span>
+                                    Send message
+                                </span>
+
+                                <i data-lucide="arrow-right"></i>
+
+                            </button>
+
+
+                             
+
+                            <div class="contact-success"
+                                 id="contactSuccess">
+
+                                <i data-lucide="check-circle"></i>
+
+                                <span>
+                                    Thanks! Your message has been received.
+                                </span>
+
+                            </div>
+
+
+                        </form>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="container">
+
+            <div class="contact-cta">
+
+                <span class="kicker">
+                    More than coffee
+                </span>
+
+                <h2>
+                    Come say hello.
+                </h2>
+
+                <p>
+                    Grab your favourite drink, find a quiet corner,
+                    and stay as long as you like. Your table is
+                    waiting.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                 
+
+                <div class="footer-brand">
+
+                    <a href="index.html"
+                       class="brand">
+
+                        <span class="brand-mark">
+
+                            <i data-lucide="coffee"></i>
+
+                        </span>
+
+                        <span class="brand-name">
+
+                            KAYAN
+
+                            <em>
+                                coffee house
+                            </em>
+
+                        </span>
+
+                    </a>
+
+
+                    <p>
+                        A neighbourhood coffee house serving
+                        slowly, warmly, and on purpose since 2016.
+                    </p>
+
+                </div>
+
+
+                 
+
+                <div class="footer-col">
+
+                    <h4>
+                        Visit us
+                    </h4>
+
+                    <p>
+
+                        <i data-lucide="map-pin"></i>
+
+                        12 Nile Avenue,
+                        Garden City, Cairo
+
+                    </p>
+
+                    <p>
+
+                        <i data-lucide="clock"></i>
+
+                        Every day · 7:00 — 23:00
+
+                    </p>
+
+                    <p>
+
+                        <i data-lucide="phone"></i>
+
+                        +20 100 234 5678
+
+                    </p>
+
+                </div>
+
+
+                 
+
+                <div class="footer-col">
+
+                    <h4>
+                        Explore
+                    </h4>
+
+
+                    <a href="menu.html">
+
+                        <i data-lucide="utensils"></i>
+
+                        The menu
+
+                    </a>
+
+
+                    <a href="reserve.html">
+
+                        <i data-lucide="calendar"></i>
+
+                        Reservations
+
+                    </a>
+
+
+                    <a href="orders.html">
+
+                        <i data-lucide="shopping-bag"></i>
+
+                        My orders
+
+                    </a>
+
+
+                    <a href="login.html">
+
+                        <i data-lucide="user"></i>
+
+                        Sign in
+
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+             
+
+            <div class="footer-bar">
+
+                <span>
+                    © 2016 KAYAN Coffee House.
+                    Brewed with care.
+                </span>
+
+                <span>
+                    Made for lingering.
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        document.addEventListener(
+            'DOMContentLoaded',
+            () => {
+
+                const form =
+                    document.getElementById(
+                        'contactForm'
+                    );
+
+                const button =
+                    document.getElementById(
+                        'contactSubmit'
+                    );
+
+                const success =
+                    document.getElementById(
+                        'contactSuccess'
+                    );
+
+
+                if (!form) {
+                    return;
+                }
+
+
+                form.addEventListener(
+                    'submit',
+                    (event) => {
+
+                        event.preventDefault();
+
+
+                        button.disabled = true;
+
+
+                        button.querySelector(
+                            'span'
+                        ).textContent =
+                            'Sending...';
+
+
+                        setTimeout(
+                            () => {
+
+                                button.disabled =
+                                    false;
+
+
+                                button.querySelector(
+                                    'span'
+                                ).textContent =
+                                    'Send message';
+
+
+                                success.classList.add(
+                                    'show'
+                                );
+
+
+                                form.reset();
+
+
+                                if (
+                                    window.lucide
+                                ) {
+
+                                    window.lucide.createIcons();
+
+                                }
+
+
+                                setTimeout(
+                                    () => {
+
+                                        success.classList.remove(
+                                            'show'
+                                        );
+
+                                    },
+                                    5000
+                                );
+
+
+                            },
+                            700
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

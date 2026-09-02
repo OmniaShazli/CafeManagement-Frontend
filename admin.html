@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — KAYAN Coffee House</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a382b' stroke-width='2' stroke-linecap='round'><path d='M17 8h1a4 4 0 1 1 0 8h-1'/><path d='M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z'/><line x1='6' x2='6' y1='2' y2='4'/><line x1='10' x2='10' y1='2' y2='4'/><line x1='14' x2='14' y1='2' y2='4'/></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script defer src="js/config.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/api.js"></script>
+  <script defer src="js/ui.js"></script>
+  <script defer src="js/admin.js"></script>
+</head>
+<body data-page="admin">
+
+  <header id="site-nav"></header>
+
+  <main>
+     
+    <section class="admin-head container">
+      <div class="hello">
+        <div>
+          <span class="kicker">Back office</span>
+          <h1 class="page-title">Good day, <em id="admin-name">Admin</em>.</h1>
+          <p class="muted" id="admin-subtitle">Here is what the house looks like right now.</p>
+        </div>
+        <button type="button" class="btn btn--outline btn--sm" id="admin-refresh">
+          <i data-lucide="refresh-cw"></i> Refresh all
+        </button>
+      </div>
+
+      <div class="tabs" id="admin-tabs">
+        <button type="button" class="tab-btn is-active" data-tab="overview"><i data-lucide="layout-dashboard"></i> Overview</button>
+        <button type="button" class="tab-btn" data-tab="orders"><i data-lucide="clipboard-list"></i> Orders</button>
+        <button type="button" class="tab-btn" data-tab="items"><i data-lucide="coffee"></i> Menu items</button>
+        <button type="button" class="tab-btn" data-tab="categories"><i data-lucide="tag"></i> Categories</button>
+        <button type="button" class="tab-btn" data-tab="tables"><i data-lucide="armchair"></i> Tables</button>
+        <button type="button" class="tab-btn" data-tab="reservations"><i data-lucide="calendar"></i> Reservations</button>
+        <button type="button" class="tab-btn" data-tab="payments"><i data-lucide="banknote"></i> Payments</button>
+      </div>
+    </section>
+
+    <div class="container">
+
+       
+      <section class="tab-panel is-active" id="tab-overview">
+        <div class="stats-grid" id="stats-grid"></div>
+        <div class="flex-between mb-2">
+          <h2 class="panel-title">Latest orders</h2>
+        </div>
+        <div class="table-wrap">
+          <table class="dtable">
+            <thead>
+              <tr><th>Order</th><th>Type</th><th>Items</th><th>Total</th><th>Status</th><th>Placed</th></tr>
+            </thead>
+            <tbody id="recent-orders-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+       
+      <section class="tab-panel" id="tab-orders">
+        <div class="table-wrap">
+          <table class="dtable">
+            <thead>
+              <tr><th>Order</th><th>Type</th><th>Items</th><th>Total</th><th>Placed</th><th>Status</th><th>Notes</th></tr>
+            </thead>
+            <tbody id="orders-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+       
+      <section class="tab-panel" id="tab-items">
+        <div class="toolbar">
+          <span class="muted small" id="items-count"></span>
+          <button type="button" class="btn btn--primary btn--sm" id="item-add">
+            <i data-lucide="plus"></i> New item
+          </button>
+        </div>
+        <div class="table-wrap">
+          <table class="dtable">
+            <thead>
+              <tr><th></th><th>Name</th><th>Category</th><th>Price</th><th>Availability</th><th></th></tr>
+            </thead>
+            <tbody id="items-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+       
+      <section class="tab-panel" id="tab-categories">
+        <div class="toolbar">
+          <span class="muted small" id="categories-count"></span>
+          <button type="button" class="btn btn--primary btn--sm" id="category-add">
+            <i data-lucide="plus"></i> New category
+          </button>
+        </div>
+        <div class="admin-cat-grid" id="categories-grid"></div>
+      </section>
+
+       
+      <section class="tab-panel" id="tab-tables">
+        <div class="toolbar">
+          <span class="muted small" id="tables-count"></span>
+          <button type="button" class="btn btn--primary btn--sm" id="table-add">
+            <i data-lucide="plus"></i> New table
+          </button>
+        </div>
+        <div class="table-wrap">
+          <table class="dtable">
+            <thead>
+              <tr><th>Table</th><th>Capacity</th><th>Availability</th><th></th></tr>
+            </thead>
+            <tbody id="tables-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+       
+      <section class="tab-panel" id="tab-reservations">
+        <div class="toolbar">
+          <span class="muted small" id="reservations-count"></span>
+        </div>
+        <div class="table-wrap">
+          <table class="dtable">
+            <thead>
+              <tr><th>#</th><th>Table</th><th>Date</th><th>Time</th><th>Guests</th><th>Notes</th><th>Status</th><th></th></tr>
+            </thead>
+            <tbody id="reservations-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+       
+      <section class="tab-panel" id="tab-payments">
+        <div class="toolbar">
+          <span class="muted small" id="payments-count"></span>
+          <button type="button" class="btn btn--primary btn--sm" id="payment-add">
+            <i data-lucide="plus"></i> New payment
+          </button>
+        </div>
+        <div class="table-wrap">
+          <table class="dtable">
+            <thead>
+              <tr><th>#</th><th>Order</th><th>Amount</th><th>Method</th><th>Status</th><th></th></tr>
+            </thead>
+            <tbody id="payments-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+   
+  <div class="overlay hidden" id="drawer-overlay"></div>
+
+   
+  <aside class="drawer hidden" id="item-drawer" aria-label="Menu item form">
+    <div class="drawer-head">
+      <h2 class="panel-title" id="item-drawer-title">New menu item</h2>
+      <button type="button" class="icon-btn" data-close-drawer aria-label="Close"><i data-lucide="x"></i></button>
+    </div>
+    <div class="drawer-body">
+      <form id="item-form" novalidate>
+        <input type="hidden" id="item-id">
+        <label class="field">
+          <span>Name</span>
+          <input class="input" type="text" id="item-name" placeholder="e.g. Spanish Latte" required>
+        </label>
+        <label class="field">
+          <span>Category</span>
+          <select class="select" id="item-category"></select>
+        </label>
+        <label class="field">
+          <span>Price (EGP)</span>
+          <input class="input" type="number" id="item-price" min="0" step="0.5" placeholder="0.00" required>
+        </label>
+        <label class="field">
+          <span>Description</span>
+          <textarea class="textarea" id="item-description" placeholder="Short, tasty description (optional)"></textarea>
+        </label>
+        <label class="field">
+          <span>Image URL</span>
+          <input class="input" type="text" id="item-image" placeholder="https://… or /images/latte.jpg (optional)">
+        </label>
+        <label class="check-field">
+          <input type="checkbox" id="item-available" checked>
+          Available on the menu
+        </label>
+      </form>
+    </div>
+    <div class="drawer-foot">
+      <button type="button" class="btn btn--primary btn--block" id="item-save">Save item</button>
+    </div>
+  </aside>
+
+   
+  <aside class="drawer hidden" id="category-drawer" aria-label="Category form">
+    <div class="drawer-head">
+      <h2 class="panel-title" id="category-drawer-title">New category</h2>
+      <button type="button" class="icon-btn" data-close-drawer aria-label="Close"><i data-lucide="x"></i></button>
+    </div>
+    <div class="drawer-body">
+      <form id="category-form" novalidate>
+        <input type="hidden" id="category-id">
+        <label class="field">
+          <span>Name</span>
+          <input class="input" type="text" id="category-name" placeholder="e.g. Hot Coffee" required>
+        </label>
+        <label class="field">
+          <span>Description</span>
+          <textarea class="textarea" id="category-description" placeholder="A few words about this category (optional)"></textarea>
+        </label>
+      </form>
+    </div>
+    <div class="drawer-foot">
+      <button type="button" class="btn btn--primary btn--block" id="category-save">Save category</button>
+    </div>
+  </aside>
+
+   
+  <aside class="drawer hidden" id="table-drawer" aria-label="Table form">
+    <div class="drawer-head">
+      <h2 class="panel-title" id="table-drawer-title">New table</h2>
+      <button type="button" class="icon-btn" data-close-drawer aria-label="Close"><i data-lucide="x"></i></button>
+    </div>
+    <div class="drawer-body">
+      <form id="table-form" novalidate>
+        <input type="hidden" id="table-id">
+        <label class="field">
+          <span>Table number</span>
+          <input class="input" type="number" id="table-number" min="1" placeholder="e.g. 7" required>
+        </label>
+        <label class="field">
+          <span>Capacity (seats)</span>
+          <input class="input" type="number" id="table-capacity" min="1" placeholder="e.g. 4" required>
+        </label>
+        <label class="check-field">
+          <input type="checkbox" id="table-available" checked>
+          Available for booking
+        </label>
+      </form>
+    </div>
+    <div class="drawer-foot">
+      <button type="button" class="btn btn--primary btn--block" id="table-save">Save table</button>
+    </div>
+  </aside>
+
+   
+  <aside class="drawer hidden" id="payment-drawer" aria-label="Payment form">
+    <div class="drawer-head">
+      <h2 class="panel-title">Record a payment</h2>
+      <button type="button" class="icon-btn" data-close-drawer aria-label="Close"><i data-lucide="x"></i></button>
+    </div>
+    <div class="drawer-body">
+      <form id="payment-form" novalidate>
+        <label class="field">
+          <span>Order ID</span>
+          <input class="input" type="number" id="payment-order-id" min="1" placeholder="e.g. 12" required>
+        </label>
+        <label class="field">
+          <span>Amount (EGP)</span>
+          <input class="input" type="number" id="payment-amount" min="0" step="0.5" placeholder="0.00" required>
+        </label>
+        <label class="field">
+          <span>Method</span>
+          <select class="select" id="payment-method">
+            <option value="Cash">Cash</option>
+            <option value="Card">Card</option>
+          </select>
+        </label>
+      </form>
+    </div>
+    <div class="drawer-foot">
+      <button type="button" class="btn btn--primary btn--block" id="payment-save">Save payment</button>
+    </div>
+  </aside>
+
+  <footer class="footer-simple">
+    <div class="container footer-bar">
+      <span>© 2016 KAYAN Coffee House — back office.</span>
+      <span>Handle with care.</span>
+    </div>
+  </footer>
+
+</body>
+</html>

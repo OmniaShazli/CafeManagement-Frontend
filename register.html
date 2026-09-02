@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create account — KAYAN Coffee House</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a382b' stroke-width='2' stroke-linecap='round'><path d='M17 8h1a4 4 0 1 1 0 8h-1'/><path d='M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z'/><line x1='6' x2='6' y1='2' y2='4'/><line x1='10' x2='10' y1='2' y2='4'/><line x1='14' x2='14' y1='2' y2='4'/></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script defer src="js/config.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/api.js"></script>
+  <script defer src="js/ui.js"></script>
+  <script defer src="js/register.js"></script>
+</head>
+<body>
+
+  <main class="auth-page">
+    <div class="auth-visual">
+      <img src="https://images.pexels.com/photos/8936985/pexels-photo-8936985.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Coffee beans being ground fresh">
+      <div class="auth-quote">
+        <p>“Join the house — the quiet corner is yours.”</p>
+        <span>KAYAN — membership</span>
+      </div>
+    </div>
+
+    <div class="auth-side">
+      <div class="auth-card">
+        <a href="index.html" class="brand">
+          <span class="brand-mark"><i data-lucide="coffee"></i></span>
+          <span class="brand-name">KAYAN<em>coffee house</em></span>
+        </a>
+
+        <h1>Join the house</h1>
+        <p class="sub">One account for ordering ahead, table bookings and order history.</p>
+
+        <form id="register-form" novalidate>
+          <label class="field">
+            <span>Full name</span>
+            <input class="input" type="text" id="reg-name" placeholder="e.g. Sara Adel" autocomplete="name" required>
+          </label>
+          <div class="form-row">
+            <label class="field">
+              <span>Email address</span>
+              <input class="input" type="email" id="reg-email" placeholder="you@example.com" autocomplete="email" required>
+            </label>
+            <label class="field">
+              <span>Phone number</span>
+              <input class="input" type="tel" id="reg-phone" placeholder="01xxxxxxxxx" autocomplete="tel">
+            </label>
+          </div>
+          <div class="form-row">
+            <label class="field">
+              <span>Password</span>
+              <input class="input" type="password" id="reg-password" placeholder="At least 6 characters" autocomplete="new-password" required>
+            </label>
+            <label class="field">
+              <span>Confirm password</span>
+              <input class="input" type="password" id="reg-confirm" placeholder="Repeat it exactly" autocomplete="new-password" required>
+            </label>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block" id="register-submit">
+            Create account <i data-lucide="arrow-right"></i>
+          </button>
+        </form>
+
+        <p class="auth-switch">Already a member? <a href="login.html">Sign in</a></p>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
